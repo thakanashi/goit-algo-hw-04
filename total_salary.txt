@@ -1,0 +1,6 @@
+John, 1000
+Mary, 1500
+Alex, 2000
+Olga, 1800
+Ivan, 2200
+
