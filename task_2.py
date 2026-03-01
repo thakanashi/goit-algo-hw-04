@@ -3,10 +3,7 @@ from typing import List, Dict
 
 
 def get_cats_info(path: str) -> List[Dict[str, str]]:
-    """
-    Read file with cats data and return list of dicts.
-    Each line in file must have format: id,name,age
-    """
+
     file_path = Path(path)
     cats: List[Dict[str, str]] = []
 
