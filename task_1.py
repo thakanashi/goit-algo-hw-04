@@ -3,10 +3,7 @@ from typing import Tuple
 
 
 def total_salary(path: str) -> Tuple[int, int]:
-    """
-    Read file with salaries and return total and count of people.
-    Each line must have format: name,salary
-    """
+
     file_path = Path(path)
     total = 0
     count = 0
