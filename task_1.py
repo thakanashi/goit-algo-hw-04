@@ -2,13 +2,13 @@ from pathlib import Path
 from typing import Tuple
 
 
-def total_salary(path: str) -> Tuple[int, int]:
+def total_salary(path: str) -> Tuple[float, float]:
     """
-    Read file with salaries and return total and count of people.
+    Read file with salaries and return total and average salary.
     Each line must have format: name,salary
     """
     file_path = Path(path)
-    total = 0
+    total = 0.0
     count = 0
 
     try:
@@ -19,7 +19,7 @@ def total_salary(path: str) -> Tuple[int, int]:
                     continue
 
                 try:
-                    salary = int(parts[1].strip())
+                    salary = float(parts[1].strip())
                 except ValueError:
                     continue
 
@@ -30,16 +30,16 @@ def total_salary(path: str) -> Tuple[int, int]:
     except OSError as error:
         print(f"Error reading file {file_path}: {error}")
 
-    return total, count
+    average = total / count if count else 0.0
+
+    return total, average
 
 
 if __name__ == "__main__":
-    total, count = total_salary("total_salary.txt")
+    total, average = total_salary("total_salary.txt")
 
-    if count == 0:
-        print("Error: Division by zero. No people to calculate average salary.")
+    if total == 0 and average == 0:
+        print("No valid salary data to calculate.")
     else:
-        average = total / count
-        print(f"Total Salary: {total}")
-        print(f"Average Salary: {int(average)}")
-        print(f"Number of People: {count}")
+        print(f"Total Salary: {total:.2f}")
+        print(f"Average Salary: {average:.2f}")
